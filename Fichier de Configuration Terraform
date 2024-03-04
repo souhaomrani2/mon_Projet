@@ -1,0 +1,16 @@
+provider "proxmox" {
+  pm_api_url      = "https://192.168.127.137:8006/#v1:0:=node%2Fpve:4:::::8::"
+  pm_user         = "root"
+  pm_password     = "rootroot"
+  pm_tls_insecure = true
+}
+
+resource "proxmox_vm_qemu" "example_vm" {
+  name        = "teste"
+  target_node = "votre-noeud-proxmox"
+  clone       = "template_base"
+  storage     = "votre-stockage"
+  memory      = 1024
+  cores       = 1
+  sockets     = 1
+}
