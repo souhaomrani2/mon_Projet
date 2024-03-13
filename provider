@@ -1,0 +1,6 @@
+provider "proxmox" {
+  pm_api_url      = "https://192.168.127.137:8006/#v1:0:=node%2Fpve:4:::::8::"
+  pm_user         = "root"
+  pm_password     = "rootroot"
+  pm_tls_insecure = true
+}
