@@ -25,7 +25,6 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
   }
   
   disk {
-    id       = 0
     storage  = var.target_storage
     size     = var.disk_size
     type     = "scsi" # Ajout de l'argument type requis pour le disque
