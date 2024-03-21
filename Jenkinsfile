@@ -1,34 +1,43 @@
 pipeline {
     agent any
-    environment {
-        TF_CLI_ARGS = "-input=false" // Set Terraform to non-interactive mode
-    }
     stages {
-        stage('Checkout') {
+        stage('Test GitHub Connection') {
             steps {
-                git branch: 'main',
-                url: 'https://github.com/souhaomrani/mon_Projet.git'
+                script {
+                    def gitUrl = 'https://github.com/souhaomrani/mon_Projet.git'
+                    // Checkout the GitHub repository using configured credentials
+                    checkout([$class: 'GitSCM',
+                              branches: [[name: '*/main']],
+                              doGenerateSubmoduleConfigurations: false,
+                              extensions: [[$class: 'CloneOption', depth: 1, noTags: false, reference: '', shallow: true]],
+                              userRemoteConfigs: [[url: gitUrl]]])
+                    echo "Connection to GitHub repository successful"
+                }
             }
         }
         stage('Terraform Init') {
             steps {
-                sh 'terraform init' // Initialize Terraform
+                // Initialize Terraform
+                sh 'terraform init'
             }
         }
         stage('Terraform Plan') {
             steps {
-                sh 'terraform plan -out=tfplan' // Plan Terraform changes
+                // Plan Terraform changes
+                sh 'terraform plan -out=tfplan'
             }
         }
         stage('Terraform Apply') {
             steps {
-                sh 'terraform apply tfplan' // Apply Terraform changes
+                // Apply Terraform changes
+                sh 'terraform apply tfplan'
             }
         }
     }
     post {
         always {
-            sh 'rm -rf .terraform terraform.tfstate tfplan' // Cleanup any temporary files if needed
+            // Cleanup any temporary files if needed
+            sh 'rm -rf .terraform terraform.tfstate tfplan'
         }
     }
 }
