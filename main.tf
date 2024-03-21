@@ -21,12 +21,12 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
   }
   os_type = var.os_type
 }
-variable "pm_api_url" {https://192.168.127.134:8006/#v1:0:=qemu%2F100:4:::::8::}
-variable "pm_user" {https://192.168.127.134:8006/#v1:0:=node%2Fpve:4:=jsconsole::::7::}
-variable "pm_password" {rootroot}
-variable "clone_template" {template}
-variable "target_node" {node1}
-variable "target_storage" {storage1}
-variable "bridge" {bridge1}
-variable "disk_size" {1G}
-variable "os_type" {126}
+variable "pm_api_url" {}
+variable "pm_user" {}
+variable "pm_password" {}
+variable "clone_template" {}
+variable "target_node" {}
+variable "target_storage" {}
+variable "bridge" {}
+variable "disk_size" {}
+variable "os_type" {}
