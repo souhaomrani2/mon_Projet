@@ -38,3 +38,7 @@ variable "os_type" {
   default     = "ubuntu" // Remplacez "ubuntu" par le type de système d'exploitation de votre choix
 }
 
+variable "clone_template" {
+  type    = string
+  default = "template"
+}
