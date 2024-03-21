@@ -6,33 +6,28 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout your Terraform files from version control
-            git 'https://github.com/souhaomrani/mon_Projet.git'
+                git 'https://github.com/souhaomrani/mon_Projet.git' // Checkout your Terraform files from version control
             }
         }
         stage('Terraform Init') {
             steps {
-                // Initialize Terraform
-                sh 'terraform init'
+                sh 'terraform init' // Initialize Terraform
             }
         }
         stage('Terraform Plan') {
             steps {
-                // Plan Terraform changes
-                sh 'terraform plan -out=tfplan'
+                sh 'terraform plan -out=tfplan' // Plan Terraform changes
             }
         }
         stage('Terraform Apply') {
             steps {
-                // Apply Terraform changes
-                sh 'terraform apply tfplan'
+                sh 'terraform apply tfplan' // Apply Terraform changes
             }
         }
     }
     post {
         always {
-            // Cleanup any temporary files if needed
-            sh 'rm -rf .terraform terraform.tfstate tfplan'
+            sh 'rm -rf .terraform terraform.tfstate tfplan' // Cleanup any temporary files if needed
         }
     }
 }
