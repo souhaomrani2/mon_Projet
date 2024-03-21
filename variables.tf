@@ -15,7 +15,7 @@ variable "pm_password" {
 
 variable "target_node" {
   description = "Nom du nœud Proxmox"
-  default     = "pve"  // Remplacez "node1" par le nom de votre nœud Proxmox
+  default     = "pve"  // Remplacez "pve" par le nom de votre nœud Proxmox
 }
 
 variable "target_storage" {
@@ -38,6 +38,3 @@ variable "os_type" {
   default     = "ubuntu" // Remplacez "ubuntu" par le type de système d'exploitation de votre choix
 }
 
-  
-  os_type = var.os_type
-}
