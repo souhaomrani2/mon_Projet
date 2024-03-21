@@ -6,7 +6,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/souhaomrani/mon_Projet.git' // Checkout your Terraform files from version control
+                git branch: 'main',
+                url: 'https://github.com/souhaomrani/mon_Projet.git'
             }
         }
         stage('Terraform Init') {
