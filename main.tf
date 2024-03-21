@@ -16,7 +16,7 @@ provider "proxmox" {
 
 resource "proxmox_vm_qemu" "ubuntu_vm" {
   name            = "ubuntu-vm"
-  clone           = "template"
+  clone           = var.template
   target_node     = var.target_node
   full_clone      = true
   network {
