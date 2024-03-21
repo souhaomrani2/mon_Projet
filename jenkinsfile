@@ -1,4 +1,3 @@
-jenkinsfile / groovy
 pipeline {
     agent any
     environment {
