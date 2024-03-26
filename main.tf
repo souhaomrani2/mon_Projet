@@ -23,8 +23,12 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
     model   = "virtio"
     bridge  = var.bridge
   }
-  
-  disk {
+variable "template" {
+  description = "template"
+  type        = string
+}
+
+    disk {
     storage  = var.target_storage
     size     = var.disk_size
     type     = "scsi" # Ajout de l'argument type requis pour le disque
