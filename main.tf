@@ -1,3 +1,9 @@
+variable "template" {
+  description = "Nom du modèle de machine virtuelle"
+  type        = string
+  default     = "template_default_value"  # Valeur par défaut
+}
+
 terraform {
   required_providers {
     proxmox = {
