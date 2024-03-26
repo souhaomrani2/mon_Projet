@@ -1,5 +1,16 @@
 pipeline {
     agent any
+    environment {
+        PM_API_URL = "https://192.168.127.134:8006/api2/json"
+        PM_USER = "root"
+        PM_PASSWORD = "rootroot"
+        TEMPLATE = "template"
+        TARGET_NODE = "node"
+        TARGET_STORAGE = "node"
+        BRIDGE = "your-bridge-name"
+        DISK_SIZE = "1G"
+        OS_TYPE = "l26"
+    }
     stages {
         stage('Test GitHub Connection') {
             steps {
@@ -24,7 +35,7 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 // Plan Terraform changes
-                sh 'terraform plan -out=tfplan'
+               sh 'terraform plan -var="template=tmpsouha" -out=tfplan'
             }
         }
         stage('Terraform Apply') {
