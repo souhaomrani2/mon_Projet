@@ -48,8 +48,8 @@ variable "clone_template" {
   default = "template"
 }
 
-variable "template" {
+variable "modele" {
   description = "Nom du modèle de machine virtuelle"
   type        = string
-  default     = "101"  # Remplacez par l'ID de votre modèle de machine virtuelle sur PVE
+  default     = "101"  // Remplacez par l'ID de votre modèle de machine virtuelle sur PVE
 }
