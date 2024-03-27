@@ -3,14 +3,10 @@ variable "pm_api_url" {
   default     = "https://192.168.127.134:8006/api2/json"
 }
 
-variable "pm_user" {
-  description = "Nom d'utilisateur Proxmox"
-  default     = "root"
-}
-
-variable "pm_password" {
-  description = "Mot de passe Proxmox"
-  default     = "rootroot"
+variable "pm_token" {
+  description = "Token d'authentification Proxmox"
+  type        = string
+  default     = "Votre_token_ici"
 }
 
 variable "target_node" {
