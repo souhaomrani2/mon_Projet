@@ -1,7 +1,7 @@
 variable "template" {
   description = "Nom du modèle de machine virtuelle"
   type        = string
-  default     = "101"  # Remplacez la valeur par l'ID de votre modèle de machine virtuelle sur PVE
+  default     = "101"  # Remplacez par l'ID de votre modèle de machine virtuelle sur PVE
 }
 
 terraform {
@@ -15,12 +15,13 @@ terraform {
 
 provider "proxmox" {
   pm_api_url      = "https://192.168.127.134:8006/api2/json"
+  pm_token        = var.pm_token  # Utilisation de la variable pour le jeton d'authentification
   pm_tls_insecure = true
 }
 
 resource "proxmox_vm_qemu" "ubuntu_vm" {
   name            = "ubuntu-vm"
-  clone           = var.template
+  template        = var.template  # Utilisation de la variable pour le modèle de machine virtuelle
   target_node     = "pve"
   full_clone      = true
   network {
