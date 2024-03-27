@@ -15,9 +15,10 @@ terraform {
 
 provider "proxmox" {
   pm_api_url      = var.pm_api_url
-  pm_token        = var.pm_token  # Utilisation du jeton d'authentification
+  pm_user         = var.pm_user
+  pm_password     = var.pm_password
   pm_tls_insecure = true
-}
+ }
 
 resource "proxmox_vm_qemu" "ubuntu_vm" {
   name            = "ubuntu-vm"
