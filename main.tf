@@ -4,6 +4,11 @@ variable "template" {
   default     = "101"  # Remplacez par l'ID de votre modèle de machine virtuelle sur PVE
 }
 
+variable "pm_token" {
+  description = "Token d'authentification Proxmox"
+  type        = string
+}
+
 terraform {
   required_providers {
     proxmox = {
