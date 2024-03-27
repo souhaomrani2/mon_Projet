@@ -1,10 +1,8 @@
 pm_api_url      = "https://192.168.127.134:8006/api2/json"
-pm_user         = "root"
-pm_password     = "rootroot"
-clone_template  = "101" # Utilisation de l'ID du modèle
-target_node     = "pve"  # Exemple de nom de nœud Proxmox
-target_storage  = "local-lvm"  # Exemple de stockage Proxmox
-bridge          = "vmbr0"  # Exemple de nom de pont réseau Proxmox
+pm_token        = "faf0b3f2-8df5-48ec-b726-6fadc60aa5d1" # Remplacez "votre-jeton-ici" par le véritable jeton d'authentification
+clone_template  = "101"
+target_node     = "pve"
+target_storage  = "local-lvm"
+bridge          = "vmbr0"
 disk_size       = "1G"
-os_type         = "l26"  # Adjust this value if needed
-
+os_type         = "l26"
