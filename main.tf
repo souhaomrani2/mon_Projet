@@ -19,9 +19,7 @@ terraform {
 }
 
 provider "proxmox" {
-  pm_api_url      = var.pm_api_url
-  pm_user         = var.pm_user
-  pm_password     = var.pm_password
+  pm_api_url      = "https://192.168.127.134:8006/api2/json"
   pm_token        = var.pm_token  # Utilisation du jeton d'authentification
   pm_tls_insecure = true
 }
@@ -29,18 +27,18 @@ provider "proxmox" {
 resource "proxmox_vm_qemu" "ubuntu_vm" {
   name            = "ubuntu-vm"
   clone           = var.template
-  target_node     = var.target_node
+  target_node     = "pve"
   full_clone      = true
   network {
     model   = "virtio"
-    bridge  = var.bridge
+    bridge  = "vmbr0"
   }
   
   disk {
-    storage  = var.target_storage
-    size     = var.disk_size
+    storage  = "local-lvm"
+    size     = "1G"
     type     = "scsi"
   }
   
-  os_type = var.os_type
+  os_type = "l26"
 }
