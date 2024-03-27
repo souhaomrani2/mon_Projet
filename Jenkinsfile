@@ -2,8 +2,9 @@ pipeline {
     agent any
     environment {
         PM_API_URL = "https://192.168.127.134:8006/api2/json"
-        PM_TOKEN = "faf0b3f2-8df5-48ec-b726-6fadc60aa5d1"
-        TEMPLATE = "101"
+        PM_USER = "root"
+        PM_PASSWORD = "rootroot"
+        TEMPLATE = "template"
         TARGET_NODE = "pve"
         TARGET_STORAGE = "local-lvm"
         BRIDGE = "vmbr0"
@@ -34,7 +35,7 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 // Plan Terraform changes
-               sh 'terraform plan -var="template=${TEMPLATE}" -out=tfplan'
+               sh 'terraform plan -var="template=tmpsouha" -out=tfplan'
             }
         }
         stage('Terraform Apply') {
