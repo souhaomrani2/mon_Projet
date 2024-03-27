@@ -1,3 +1,9 @@
+variable "template" {
+  description = "Nom du modèle de machine virtuelle"
+  type        = string
+  default     = "101"  # Remplacez la valeur par l'ID de votre modèle de machine virtuelle sur PVE
+}
+
 terraform {
   required_providers {
     proxmox = {
@@ -27,7 +33,7 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
   disk {
     storage  = var.target_storage
     size     = var.disk_size
-    type     = "scsi" # Ajout de l'argument type requis pour le disque
+    type     = "scsi"
   }
   
   os_type = var.os_type
