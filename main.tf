@@ -4,41 +4,27 @@ variable "template" {
   default     = "101"  # Remplacez par l'ID de votre modèle de machine virtuelle sur PVE
 }
 
-variable "pm_token" {
-  description = "Token d'authentification Proxmox"
-  type        = string
-}
-
-terraform {
-  required_providers {
-    proxmox = {
-      source  = "telmate/proxmox"
-      version = "3.0.1-rc1"
-    }
-  }
-}
-
 provider "proxmox" {
-  pm_api_url      = "https://192.168.127.134:8006/api2/json"
-  pm_token        = var.pm_token  # Utilisation de la variable pour le jeton d'authentification
+  pm_api_url      = var.pm_api_url
+  pm_token        = var.pm_token
   pm_tls_insecure = true
 }
 
 resource "proxmox_vm_qemu" "ubuntu_vm" {
   name            = "ubuntu-vm"
-  clone           = var.template
-  target_node     = "pve"
+  template        = var.template
+  target_node     = var.target_node
   full_clone      = true
   network {
     model   = "virtio"
-    bridge  = "vmbr0"
+    bridge  = var.bridge
   }
   
   disk {
-    storage  = "local-lvm"
-    size     = "1G"
+    storage  = var.target_storage
+    size     = var.disk_size
     type     = "scsi"
   }
   
-  os_type = "l26"
+  os_type = var.os_type
 }
