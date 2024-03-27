@@ -36,5 +36,5 @@ variable "os_type" {
 
 variable "clone_template" {
   type    = string
-  default = "template"
+  default = "101"
 }
