@@ -1,12 +1,14 @@
+User
 pipeline {
     agent any
     environment {
         PM_API_URL = "https://192.168.127.134:8006/api2/json"
-        PM_TOKEN = "your_proxmox_token_here"
-        TEMPLATE = "your_template_name_here"
-        TARGET_NODE = "your_target_node_here"
-        TARGET_STORAGE = "your_target_storage_here"
-        BRIDGE = "your_bridge_name_here"
+        PM_USER = "root"
+        PM_PASSWORD = "rootroot"
+        TEMPLATE = "template"
+        TARGET_NODE = "node"
+        TARGET_STORAGE = "node"
+        BRIDGE = "your-bridge-name"
         DISK_SIZE = "1G"
         OS_TYPE = "l26"
     }
@@ -34,7 +36,7 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 // Plan Terraform changes
-               sh 'terraform plan -var="template=${TEMPLATE}" -out=tfplan'
+               sh 'terraform plan -var="template=tmpsouha" -out=tfplan'
             }
         }
         stage('Terraform Apply') {
