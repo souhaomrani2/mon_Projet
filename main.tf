@@ -26,7 +26,7 @@ provider "proxmox" {
 
 resource "proxmox_vm_qemu" "ubuntu_vm" {
   name            = "ubuntu-vm"
-  template        = var.template  # Utilisation de la variable pour le modèle de machine virtuelle
+  clone           = var.template
   target_node     = "pve"
   full_clone      = true
   network {
