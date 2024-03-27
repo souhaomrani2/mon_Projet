@@ -1,8 +1,3 @@
-variable "pm_token" {
-  description = "Token d'authentification Proxmox"
-  type        = string
-}
-
 variable "template" {
   description = "Nom du modèle de machine virtuelle"
   type        = string
@@ -20,7 +15,7 @@ terraform {
 
 provider "proxmox" {
   pm_api_url      = "https://192.168.127.134:8006/api2/json"
-  pm_token        = var.pm_token  # Utilisation du jeton d'authentification
+  pm_token        = "faf0b3f2-8df5-48ec-b726-6fadc60aa5d1"  # Remplacez par votre véritable jeton d'authentification
   pm_tls_insecure = true
 }
 
