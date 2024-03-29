@@ -35,9 +35,13 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
     type     = "scsi" # Ajout de l'argument type requis pour le disque
   }
 
-  device = [
-    "cdrom:iso=${var.iso}"
-  ]
+  device {
+    disk = [
+      {
+        file = var.iso
+      }
+    ]
+  }
 
   os_type = var.os_type
 }
