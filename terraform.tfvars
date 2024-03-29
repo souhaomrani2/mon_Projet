@@ -1,7 +1,7 @@
 pm_api_url      = "https://192.168.127.134:8006/api2/json"
 pm_user         = "root"
 pm_password     = "rootroot"
-clone_template  = "101"
+template        = "101"
 target_node     = "pve"
 target_storage  = "local-lvm"
 bridge          = "vmbr0"
