@@ -8,10 +8,10 @@ terraform {
 }
 
 provider "proxmox" {
-  pm_api_url      = var.pm_api_url
-  pm_api_token_id     = var.pm_user
+  pm_api_url         = var.pm_api_url
+  pm_api_token_id    = var.pm_user
   pm_api_token_secret = var.pm_password
-  pm_tls_insecure = true
+  pm_tls_insecure    = true
 }
 
 resource "proxmox_vm_qemu" "ubuntu_vm" {
@@ -29,9 +29,9 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
     size     = var.disk_size
     type     = "scsi"
   }
-  
+
   device {
-    "cdrom" = {
+    cdrom = {
       file   = var.iso
       media  = "cdrom"
       hotplug = "1"
@@ -40,5 +40,4 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
 
   os_type = var.os_type
 }
-
 
