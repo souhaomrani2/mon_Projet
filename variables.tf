@@ -20,7 +20,7 @@ variable "target_node" {
 
 variable "target_storage" {
   description = "Nom du stockage Proxmox"
-  default     = "local"  // Remplacez "local" par le nom de votre stockage Proxmox
+  default     = "local-lvm"  // Remplacez "local" par le nom de votre stockage Proxmox
 }
 
 variable "bridge" {
@@ -30,15 +30,16 @@ variable "bridge" {
 
 variable "disk_size" {
   description = "Taille du disque pour la machine virtuelle"
-  default     = "10G"    // Remplacez "10G" par la taille souhaitée pour le disque de la VM
+  default     = "1G"    // Remplacez "10G" par la taille souhaitée pour le disque de la VM
 }
 
 variable "os_type" {
   description = "Type du système d'exploitation"
-  default     = "ubuntu" // Remplacez "ubuntu" par le type de système d'exploitation de votre choix
+  default     = "l26" // Remplacez "ubuntu" par le type de système d'exploitation de votre choix
 }
 
-variable "clone_template" {
-  type    = string
-  default = "101"
+variable "template" {
+  description = "Modèle pour la création de la machine virtuelle"
+  type        = string
+  default     = "101"
 }
