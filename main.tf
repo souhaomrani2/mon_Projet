@@ -34,7 +34,7 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
     cdrom = {
       file    = var.iso
       media   = "cdrom"
-      hotplug = true
+      hotplug = "true"
     }
   }
 
