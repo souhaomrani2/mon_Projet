@@ -30,7 +30,13 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
     type     = "scsi" # Ajout de l'argument type requis pour le disque
   }
   
-  os_type = var.os_type
-  iso_image       = "local:${var.iso_image}"
-  cdrom           = "local:${var.iso_image}"
+  os_type         = var.os_type
+
+  // Arguments pour l'image ISO
+  agent           = 1
+  ide2            = var.iso_image
+  bootdisk        = "scsi0"
+
+  // Démarrage de la machine virtuelle avec l'image ISO
+  boot            = "cdn"
 }
