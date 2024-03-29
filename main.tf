@@ -1,3 +1,8 @@
+variable "iso" {
+  description = "Chemin de l'image ISO"
+  default     = "/var/lib/vz/ubuntu-22.04.3-desktop-amd64.iso"
+}
+
 terraform {
   required_providers {
     proxmox = {
@@ -8,10 +13,10 @@ terraform {
 }
 
 provider "proxmox" {
-  pm_api_url      = var.pm_api_url
-  pm_api_token_id     = var.pm_user
+  pm_api_url         = var.pm_api_url
+  pm_api_token_id    = var.pm_user
   pm_api_token_secret = var.pm_password
-  pm_tls_insecure = true
+  pm_tls_insecure    = true
 }
 
 resource "proxmox_vm_qemu" "ubuntu_vm" {
@@ -29,9 +34,10 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
     size     = var.disk_size
     type     = "scsi" # Ajout de l'argument type requis pour le disque
   }
-variable "device" {
-  description = "Chemin de l'image ISO"
-  default     = "/var/lib/vz/ubuntu-22.04.3-desktop-amd64.iso"
-}
-    os_type = var.os_type
+
+  device = [
+    "cdrom:iso=${var.iso}"
+  ]
+
+  os_type = var.os_type
 }
