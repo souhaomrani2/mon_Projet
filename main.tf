@@ -29,13 +29,15 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
     size     = var.disk_size
     type     = "scsi"
   }
-
-  device {
-    cdrom = {
-      file   = var.iso
-      media  = "cdrom"
-      hotplug = "1"
-    }
+  
+  devices = {
+    cdrom = [
+      {
+        file   = var.iso
+        media  = "cdrom"
+        hotplug = "1"
+      }
+    ]
   }
 
   os_type = var.os_type
