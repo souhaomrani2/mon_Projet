@@ -4,11 +4,11 @@ pipeline {
         PM_API_URL = "https://192.168.127.134:8006/api2/json"
         PM_USER = "root"
         PM_PASSWORD = "rootroot"
-        TEMPLATE = "machinet"
+        TEMPLATE = "exemple"
         TARGET_NODE = "pve"
         TARGET_STORAGE = "local-lvm"
         BRIDGE = "vmbr0"
-        DISK_SIZE = "1G"
+        DISK_SIZE = "2G"
         OS_TYPE = "l26"
     }
     stages {
