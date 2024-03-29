@@ -31,4 +31,6 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
   }
   
   os_type = var.os_type
+  iso_image       = "local:${var.iso_image}"
+  cdrom           = "local:${var.iso_image}"
 }
