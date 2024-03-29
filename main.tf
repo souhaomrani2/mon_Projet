@@ -31,7 +31,7 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
   }
   
   devices = {
-    cdrom = }
+    cdrom = {
       {
         file   = var.iso
         media  = "cdrom"
