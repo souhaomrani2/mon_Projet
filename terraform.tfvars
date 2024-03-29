@@ -7,4 +7,5 @@ target_storage  = "local-lvm"
 bridge          = "vmbr0"
 disk_size       = "2G"
 os_type         = "l26"
- iso_file       = "local:iso/ubuntu-22.04.3-desktop-amd64.iso"
+  device        ="cdrom:iso=${iso/ubuntu-22.04.3-desktop-amd64.iso}"
+  
