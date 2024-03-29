@@ -34,10 +34,9 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
   os_type         = var.os_type
 
   // Arguments pour l'image ISO
-  agent           = 1
+  agent           = true
   boot            = "cdn"
   scsihw          = "virtio-scsi-pci"
-  virtio          = true
 
   // Démarrage de la machine virtuelle avec l'image ISO
   cdrom           = var.iso_image
