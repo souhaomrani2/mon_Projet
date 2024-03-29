@@ -31,13 +31,13 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
   }
   
   devices = {
-    cdrom = [
+    cdrom = }
       {
         file   = var.iso
         media  = "cdrom"
         hotplug = "1"
       }
-    ]
+    }
   }
 
   os_type = var.os_type
