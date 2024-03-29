@@ -29,10 +29,9 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
     size     = var.disk_size
     type     = "scsi" # Ajout de l'argument type requis pour le disque
   }
-# Image ISO mount
-  device = [
-    "cdrom:iso=${var.image_iso_file}"
-  ]
-  
-  os_type = var.os_type
+variable "device" {
+  description = "Chemin de l'image ISO"
+  default     = "/var/lib/vz/ubuntu-22.04.3-desktop-amd64.iso"
+}
+    os_type = var.os_type
 }
