@@ -7,6 +7,6 @@ target_storage  = "local-lvm"
 bridge          = "vmbr0"
 disk_size       = "2G"
 os_type         = "l26"
-iso = "/var/lib/vz/template/iso/ubuntu-22.04.3-desktop-amd64.iso"
+iso             = "/var/lib/vz/template/iso/ubuntu-22.04.3-desktop-amd64.iso"
 
   
