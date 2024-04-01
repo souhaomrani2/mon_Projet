@@ -39,4 +39,3 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
 
   os_type = var.os_type
 }
-
