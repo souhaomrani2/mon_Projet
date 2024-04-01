@@ -31,10 +31,8 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
     type     = "scsi"
   }
 
-  cdrom {
-    file    = var.iso_path  # Chemin vers le fichier ISO sur le système Proxmox
-    media   = "cdrom"
-    hotplug = true
+  iso_drive {
+    file = var.iso_path  # Chemin vers le fichier ISO sur le système Proxmox
   }
 
   os_type = var.os_type
