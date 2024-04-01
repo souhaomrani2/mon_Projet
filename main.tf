@@ -19,7 +19,6 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
   clone           = var.template
   target_node     = var.target_node
   full_clone      = true
-  file            = var.iso_path
 
   network {
     model   = "virtio"
@@ -30,6 +29,16 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
     storage  = var.target_storage
     size     = var.disk_size
     type     = "scsi"
+  }
+
+devices = {
+    "cdrom" = [
+      {
+        "file"    = var.iso
+        "media"   = "cdrom"
+        "hotplug" = "1"
+      }
+    ]
   }
 
   os_type = var.os_type
