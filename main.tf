@@ -19,6 +19,7 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
   clone           = var.template
   target_node     = var.target_node
   full_clone      = true
+  file            = var.iso_path
 
   network {
     model   = "virtio"
@@ -29,10 +30,6 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
     storage  = var.target_storage
     size     = var.disk_size
     type     = "scsi"
-  }
-
-  iso_drive {
-    file = var.iso_path  # Chemin vers le fichier ISO sur le système Proxmox
   }
 
   os_type = var.os_type
