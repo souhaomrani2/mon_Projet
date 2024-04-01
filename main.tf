@@ -31,8 +31,5 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
     type     = "scsi"
   }
 
-  # Utilisation du bloc "qemu_guest_agent" pour inclure le lecteur CD-ROM
-  qemu_guest_agent {}
-
   os_type = var.os_type
 }
