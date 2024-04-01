@@ -31,10 +31,13 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
     type     = "scsi"
   }
 
-  cdrom {
-    file    = var.iso
-    media   = "cdrom"
-    hotplug = true
+  // Le bloc "cdrom" doit être défini à l'intérieur du bloc "qemu_agent" ou "qemu_guest_agent"
+  qemu_agent {
+    cdrom {
+      file    = var.iso
+      media   = "cdrom"
+      hotplug = true
+    }
   }
 
   os_type = var.os_type
