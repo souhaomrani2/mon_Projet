@@ -43,7 +43,7 @@ variable "template" {
   type        = string
   default     = "exemple"
 }
-variable "iso_path" {
+variable "iso" {
   description = "Chemin de l'image ISO"
   default     = "/var/lib/vz/template/iso/ubuntu-22.04.3-desktop-amd64.iso"  
 }
