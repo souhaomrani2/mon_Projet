@@ -38,7 +38,6 @@ variable "os_type" {
   default     = "l26" // Remplacez "ubuntu" par le type de système d'exploitation de votre choix
 }
 
-}
 variable "iso" {
   description = "Chemin de l'image ISO"
   default     = "/var/lib/vz/template/iso/ubuntu-22.04.3-desktop-amd64.iso"  
