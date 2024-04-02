@@ -1,4 +1,4 @@
-variables.tf
+
 variable "pm_api_url" {
   description = "URL de l'API Proxmox"
   default     = "https://192.168.127.134:8006/api2/json"
@@ -31,7 +31,7 @@ variable "bridge" {
 
 variable "disk_size" {
   description = "Taille du disque pour la machine virtuelle"
-  default     = "1G"    // Remplacez "10G" par la taille souhaitée pour le disque de la VM
+  default     = "10G"    // Remplacez "10G" par la taille souhaitée pour le disque de la VM
 }
 
 variable "os_type" {
