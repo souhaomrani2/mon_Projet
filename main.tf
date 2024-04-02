@@ -22,8 +22,7 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
   disks {
     storage      = var.target_storage
     size         = var.disk_size
-    scsi         = true
-    type         = var.storage_type
+    storage_type = var.storage_type
   }
 
   os_type = var.os_type
