@@ -31,7 +31,7 @@ variable "bridge" {
 
 variable "disk_size" {
   description = "Taille du disque pour la machine virtuelle"
-  default     = "10G"    // Remplacez "10G" par la taille souhaitée pour le disque de la VM
+  default     = "20G"    // Remplacez "10G" par la taille souhaitée pour le disque de la VM
 }
 
 variable "os_type" {
