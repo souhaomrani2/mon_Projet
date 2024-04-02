@@ -17,8 +17,4 @@ provider "proxmox" {
 resource "proxmox_vm_qemu" "ubuntu_vm" {
   name            = "ubuntu-vm"
   clone           = var.template
-  
-  }
-  
-  os_type = var.os_type
 }
