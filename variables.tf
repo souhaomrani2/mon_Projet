@@ -38,10 +38,6 @@ variable "os_type" {
   default     = "l26" // Remplacez "ubuntu" par le type de système d'exploitation de votre choix
 }
 
-variable "template" {
-  description = "Modèle pour la création de la machine virtuelle"
-  type        = string
-  default     = "exemple"
 }
 variable "iso" {
   description = "Chemin de l'image ISO"
