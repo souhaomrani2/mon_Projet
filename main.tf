@@ -15,10 +15,8 @@ provider "proxmox" {
 }
 
 resource "proxmox_vm_qemu" "ubuntu_vm" {
-  name            = "ubuntu-vm"
-  clone           = var.template
-  target_node     = var.target_node
-  full_clone      = true
+  name        = "ubuntu-vm"
+  target_node = var.target_node
 
   network {
     model   = "virtio"
@@ -29,14 +27,9 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
     storage  = var.target_storage
     size     = var.disk_size
     type     = "scsi"
-  }
-
-devices = {
-    "cdrom" = {
-        "file"    = var.iso
-        "media"   = "cdrom"
-        "hotplug" = "1"
-      }
+    content  = "iso" // Définit le type de contenu comme ISO
+    format   = "raw"
+    filename = var.iso // Spécifie le chemin de l'image ISO
   }
 
   os_type = var.os_type
