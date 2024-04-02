@@ -8,7 +8,7 @@ pipeline {
         TARGET_NODE = "pve"
         TARGET_STORAGE = "local-lvm"
         BRIDGE = "vmbr0"
-        DISK_SIZE = "2G"
+        DISK_SIZE = "1G"
         OS_TYPE = "l26"
     }
     stages {
@@ -35,7 +35,7 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 // Plan Terraform changes
-               sh 'terraform plan -var="template=exemple" -out=tfplan'
+               sh 'terraform plan -var="template=tmpsouha" -out=tfplan'
             }
         }
         stage('Terraform Apply') {
