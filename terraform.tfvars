@@ -5,5 +5,4 @@ template        = "exemple"
 target_node     = "pve"
 target_storage  = "local-lvm"
 bridge          = "vmbr0"
-disk_size       = "20G"
-os_type         = "l26"
+
