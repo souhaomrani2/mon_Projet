@@ -5,37 +5,37 @@ variable "pm_api_url" {
 
 variable "pm_user" {
   description = "Nom d'utilisateur Proxmox"
-  default     = "root"
+  default     = "root@pam!souhasouha"
 }
 
 variable "pm_password" {
   description = "Mot de passe Proxmox"
-  default     = "rootroot"
+  default     = "faf0b3f2-8df5-48ec-b726-6fadc60aa5d1"
 }
 
 variable "target_node" {
   description = "Nom du nœud Proxmox"
-  default     = "pve"  // Remplacez "pve" par le nom de votre nœud Proxmox
+  default     = "local(pve)"
 }
 
 variable "target_storage" {
   description = "Nom du stockage Proxmox"
-  default     = "local-lvm"  // Remplacez "local" par le nom de votre stockage Proxmox
-}
-
-variable "bridge" {
-  description = "Nom du réseau bridge"
-  default     = "vmbr0"  // Remplacez "vmbr0" par le nom de votre pont réseau Proxmox
+  default     = "local-lvm"
 }
 
 variable "disk_size" {
   description = "Taille du disque pour la machine virtuelle"
-  default     = "10G"    // Remplacez "10G" par la taille souhaitée pour le disque de la VM
+  default     = "2G"
+}
+
+variable "storage_type" {
+  description = "Type de stockage"
+  default     = "lvm"
 }
 
 variable "os_type" {
   description = "Type du système d'exploitation"
-  default     = "l26" // Remplacez "ubuntu" par le type de système d'exploitation de votre choix
+  default     = "l26"
 }
 
 variable "iso" {
