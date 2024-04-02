@@ -21,9 +21,9 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
   # Configuration du disque
   disks {
     storage      = var.target_storage
-    disk_size    = "2G" # Taille du disque
+    size         = var.disk_size
     scsi         = true
-    storage_type = "lvm" # Type de stockage
+    type         = var.storage_type
   }
 
   os_type = var.os_type
