@@ -42,5 +42,5 @@ variable "os_type" {
 variable "template" {
   description = "Modèle pour la création de la machine virtuelle"
   type        = string
-  default     = "machinet"
+  default     = "exemple"
 }
