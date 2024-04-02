@@ -29,10 +29,5 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
     type     = "scsi"
   }
 
-  cdrom {
-    storage = var.target_storage
-    file    = var.iso
-  }
-
   os_type = var.os_type
 }
