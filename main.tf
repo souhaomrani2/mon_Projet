@@ -27,10 +27,13 @@ resource "proxmox_vm_qemu" "ubuntu_vm" {
     storage  = var.target_storage
     size     = var.disk_size
     type     = "scsi"
-    content  = "iso" // Définit le type de contenu comme ISO
-    format   = "raw"
-    filename = var.iso // Spécifie le chemin de l'image ISO
+  }
+
+  cdrom {
+    storage = var.target_storage
+    file    = var.iso
   }
 
   os_type = var.os_type
 }
+
