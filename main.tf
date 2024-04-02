@@ -17,17 +17,7 @@ provider "proxmox" {
 resource "proxmox_vm_qemu" "ubuntu_vm" {
   name            = "ubuntu-vm"
   clone           = var.template
-  target_node     = var.target_node
-  full_clone      = true
-  network {
-    model   = "virtio"
-    bridge  = var.bridge
-  }
   
-  disk {
-    storage  = var.target_storage
-    size     = var.disk_size
-    type     = "scsi" # Ajout de l'argument type requis pour le disque
   }
   
   os_type = var.os_type
