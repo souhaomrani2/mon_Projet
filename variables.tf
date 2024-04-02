@@ -1,3 +1,4 @@
+variables.tf
 variable "pm_api_url" {
   description = "URL de l'API Proxmox"
   default     = "https://192.168.127.134:8006/api2/json"
@@ -5,40 +6,41 @@ variable "pm_api_url" {
 
 variable "pm_user" {
   description = "Nom d'utilisateur Proxmox"
-  default     = "root@pam!souhasouha"
+  default     = "root"
 }
 
 variable "pm_password" {
   description = "Mot de passe Proxmox"
-  default     = "faf0b3f2-8df5-48ec-b726-6fadc60aa5d1"
+  default     = "rootroot"
 }
 
 variable "target_node" {
   description = "Nom du nœud Proxmox"
-  default     = "local(pve)"
+  default     = "pve"  // Remplacez "pve" par le nom de votre nœud Proxmox
 }
 
 variable "target_storage" {
   description = "Nom du stockage Proxmox"
-  default     = "local-lvm"
+  default     = "local-lvm"  // Remplacez "local" par le nom de votre stockage Proxmox
+}
+
+variable "bridge" {
+  description = "Nom du réseau bridge"
+  default     = "vmbr0"  // Remplacez "vmbr0" par le nom de votre pont réseau Proxmox
 }
 
 variable "disk_size" {
   description = "Taille du disque pour la machine virtuelle"
-  default     = "2G"
-}
-
-variable "storage_type" {
-  description = "Type de stockage"
-  default     = "lvm"
+  default     = "1G"    // Remplacez "10G" par la taille souhaitée pour le disque de la VM
 }
 
 variable "os_type" {
   description = "Type du système d'exploitation"
-  default     = "l26"
+  default     = "l26" // Remplacez "ubuntu" par le type de système d'exploitation de votre choix
 }
 
-variable "iso" {
-  description = "Chemin de l'image ISO"
-  default     = "/var/lib/vz/template/iso/ubuntu-22.04.3-desktop-amd64.iso"  
+variable "template" {
+  description = "Modèle pour la création de la machine virtuelle"
+  type        = string
+  default     = "machinet"
 }
