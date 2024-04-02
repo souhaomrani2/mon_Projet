@@ -17,13 +17,15 @@ provider "proxmox" {
 resource "proxmox_vm_qemu" "ubuntu_vm" {
   name        = "ubuntu-vm"
   target_node = var.target_node
+  boot        = "scsi0"
+  clone       = "pve"
 
   network {
     model   = "virtio"
     bridge  = var.bridge
   }
 
-  disk {
+  disks {
     storage  = var.target_storage
     size     = var.disk_size
     type     = "scsi"
