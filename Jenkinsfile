@@ -5,7 +5,7 @@ pipeline {
         PM_USER = "root"
         PM_PASSWORD = "rootroot"
         TEMPLATE = "exemple"
-        TARGET_NODE = "pve"
+        TARGET_NODE = "local-lvm"
         TARGET_STORAGE = "local-lvm"
         BRIDGE = "vmbr0"
         DISK_SIZE = "1G"
