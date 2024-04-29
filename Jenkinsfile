@@ -4,12 +4,8 @@ pipeline {
         PM_API_URL = "https://192.168.127.134:8006/api2/json"
         PM_USER = "root"
         PM_PASSWORD = "rootroot"
-        TEMPLATE = "exemple"
-        TARGET_NODE = "local-lvm"
-        TARGET_STORAGE = "local-lvm"
-        BRIDGE = "vmbr0"
-        DISK_SIZE = "1G"
-        OS_TYPE = "l26"
+        TEMPLATE = "ubuntu.robert.local"
+
     }
     stages {
         stage('Test GitHub Connection') {
