@@ -14,8 +14,8 @@ provider "proxmox" {
   pm_tls_insecure = true
 }
 
-resource "proxmox_vm_qemu" "ubuntu_vm" {
-  name            = "ubuntu-vm"
+resource "proxmox_vm_qemu" "ubuntu_vmm" {
+  name            = "ubuntu-vmm"
   clone           = var.template
   target_node     = "pve"
 }
