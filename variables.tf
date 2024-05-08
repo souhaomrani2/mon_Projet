@@ -22,5 +22,5 @@ variable "target_node" {
 variable "template" {
   description = "Modèle pour la création de la machine virtuelle"
   type        = string
-  default     = "ubuntu.robert.local"
+  default     = "exemple"
 }
