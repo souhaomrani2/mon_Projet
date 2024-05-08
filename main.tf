@@ -8,21 +8,21 @@ terraform {
 }
 
 provider "proxmox" {
-  pm_api_url      = var.pm_api_url
-  pm_api_token_id     = var.pm_user
+  pm_api_url         = var.pm_api_url
+  pm_api_token_id    = var.pm_user
   pm_api_token_secret = var.pm_password
-  pm_tls_insecure = true
+  pm_tls_insecure    = true
 }
 
 resource "proxmox_vm_qemu" "ubuntu_vmm" {
-  name            = "ubuntu-vmm"
-  clone           = var.template
-  target_node     = "pve"
- # Spécifie l'agent Qemu Guest
+  name        = "ubuntu-vmm"
+  clone       = var.template
+  target_node = "pve"
+
+  # Spécifie l'agent Qemu Guest
   agent {
     enabled = true
   }
 }
-
 
   
