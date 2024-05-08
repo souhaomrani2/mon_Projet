@@ -18,11 +18,6 @@ resource "proxmox_vm_qemu" "ubuntu_vmm" {
   name        = "ubuntu-vmm"
   clone       = var.template
   target_node = "pve"
-
-  # Spécifie l'agent Qemu Guest
-  agent {
-    enabled = true
-  }
 }
 
   
