@@ -13,15 +13,15 @@ provider "proxmox" {
   pm_api_token_secret = var.pm_password
   pm_tls_insecure = true
 }
-  # Spécifie l'agent Qemu Guest
-  agent {
-    enabled = true
-  }
 
 resource "proxmox_vm_qemu" "ubuntu_vmm" {
   name            = "ubuntu-vmm"
   clone           = var.template
   target_node     = "pve"
+ # Spécifie l'agent Qemu Guest
+  agent {
+    enabled = true
+  }
 }
 
 
