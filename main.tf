@@ -19,11 +19,5 @@ resource "proxmox_vm_qemu" "ubuntu_vmm" {
   clone       = var.template
   target_node = "pve"
 }
-network {
-    model  = "virtio"
-    bridge = "vmbr0"
-    ip     = "192.168.1.100"
-    netmask = "255.255.255.0"
-    gateway = "192.168.1.1"
-  }
+
   
