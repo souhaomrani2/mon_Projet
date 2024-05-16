@@ -42,3 +42,5 @@ variable "clone_template" {
   type    = string
   default = "template"
 }
+
+21d17d80-eda1-40e6-a9fa-6966c9475c59
