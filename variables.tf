@@ -1,7 +1,7 @@
 
 variable "pm_api_url" {
   description = "URL de l'API Proxmox"
-  default     = "https://192.168.127.134:8006/api2/json"
+  default     = "https://192.168.127.177:8006/api2/json"
 }
 
 variable "pm_user" {
@@ -22,5 +22,5 @@ variable "target_node" {
 variable "template" {
   description = "Modèle pour la création de la machine virtuelle"
   type        = string
-  default     = "exemple"
+  default     = "tmp"
 }
