@@ -1,10 +1,10 @@
 pipeline {
     agent any
     environment {
-        PM_API_URL = "https://192.168.127.134:8006/api2/json"
+        PM_API_URL = "https://192.168.127.177:8006/api2/json"
         PM_USER = "root"
         PM_PASSWORD = "rootroot"
-        TEMPLATE = "ubuntu.robert.local"
+        TEMPLATE = "tmp"
 
     }
     stages {
@@ -31,7 +31,7 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 // Plan Terraform changes
-               sh 'terraform plan -var="template=exemple" -out=tfplan'
+               sh 'terraform plan -var="template=tmp" -out=tfplan'
             }
         }
         stage('Terraform Apply') {
